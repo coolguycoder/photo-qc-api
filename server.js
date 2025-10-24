@@ -6,7 +6,7 @@ const app = express();
 const PORT = 3000;
 
 // Change this to your external server URL
-const TARGET_SERVER = 'https://example.com/receive'; 
+const TARGET_SERVER = 'http://http://100.94.216.120:5678/webhook-test/cf0bbfae-4acc-4663-9e95-af65c043e7ca'; 
 
 app.use(express.json());
 
