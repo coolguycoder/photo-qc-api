@@ -11,13 +11,13 @@ const TARGET_SERVER = 'http://100.94.216.120:5678/webhook-test/cf0bbfae-4acc-466
 app.use(express.json());
 
 const days = [
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-  'Sunday'
+  'monday',
+  'tuesday',
+  'wednesday',
+  'thursday',
+  'friday',
+  'saturday',
+  'sunday'
 ];
 
 // Helper function to handle approve/regenerate
