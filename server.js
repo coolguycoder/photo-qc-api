@@ -53,8 +53,9 @@ app.get('/api/photos/:day', (req, res) => {
 });
 
 // Batch Regenerate: /api/actions/regenerate-all
+// Forward the incoming request body (e.g. contains 'the fix') along with a default action if missing
 app.post('/api/actions/regenerate-all', async (req, res) => {
-  const payload = req.body || { action: 'regenerate-all' };
+  const payload = Object.assign({ action: 'regenerate-all' }, req.body || {});
 
   // Send to primary regenerate target server (REGENERATE_TARGET)
   let primaryResponse = null;
@@ -133,10 +134,10 @@ app.post('/api/actions/approve/:day', async (req, res) => {
 });
 
 // Regenerate Single: /api/actions/regenerate-single/:currentDay
-// Send the original payload shape the upstream expects: { day, action: 'regenerated' }
+// Forward the incoming request body (e.g. contains 'the fix') merged with day/action
 app.post('/api/actions/regenerate-single/:day', async (req, res) => {
   const { day } = req.params;
-  const payload = { day, action: 'regenerated' };
+  const payload = Object.assign({ day, action: 'regenerated' }, req.body || {});
   try {
     if (FIRE_AND_FORGET) {
       fireAndForgetPost(TARGET_SERVER, payload);
