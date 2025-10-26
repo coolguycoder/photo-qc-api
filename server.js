@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Primary webhook / target server for approve/regenerate-single (can be set via env)
-const TARGET_SERVER = process.env.TARGET_SERVER || 'http://192.168.1.249:5678/webhook/approve/regen';
+const TARGET_SERVER = process.env.TARGET_SERVER || 'http://192.168.1.249:5678/webhook/approveorregen';
 
 // Primary webhook / target server specifically for regenerate-all
 const REGENERATE_TARGET = process.env.REGENERATE_TARGET || process.env.TARGET_SERVER || 'http://192.168.1.249:5678/webhook-test/regen-all';
